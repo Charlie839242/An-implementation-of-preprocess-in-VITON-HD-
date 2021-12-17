@@ -44,10 +44,10 @@
 
 衣服的原图和分割后的效果如下：
 
-<div>     
+<center>     
     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_cloth.jpg" width="300">     
     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg" width="300">    
-</div>
+</center>
 
 
 
@@ -74,6 +74,12 @@ img.save(args.cloth_path + "/0.jpg")  		  # 保存图片
 得到的效果如下：
 
 ![image](https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg)  
+
+<center>
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg" width="300">     
+</center>
+
+
 
 
 
