@@ -73,11 +73,9 @@ img.save(args.cloth_path + "/0.jpg")  		  # 保存图片
 
 得到的效果如下：
 
-![image](https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg)  
-
-<center>
+<p align="middle">   
     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg" width="300">     
-</center>
+</p>
 
 
 
@@ -104,9 +102,9 @@ cv2.imwrite(content_path, image)
 
 得到的效果如下：
 
-![image](https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_no_background.jpg)  
-
-
+<p align="middle">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_no_background.jpg" width="300">     
+</p>
 
 
 
@@ -122,7 +120,11 @@ cv2.imwrite(content_path, image)
 
 然而，作者在论文中提到了他用的ACGPN中的分割模型来进行的人体分割。当我去查阅的时候，我发现这个分割方面有三个主要数据集，LIP，ATR和Pascal。然而，这三个数据集中都没有包含脖子（Neck）的标签。然而如果分割出来没有脖子，那么最终的虚拟换衣效果就不会好。因为所有训练集的分割图都有脖子的标签，而我们分割出来的却没有。如下：（左为作者图，右为我们的图）
 
-<figure class="half">     <img src="http://xxx.jpg">     <img src="http://yyy.jpg">    </figure>
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="300">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="300">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">
+</p>
 
 
 
@@ -132,9 +134,10 @@ cv2.imwrite(content_path, image)
 
 这句话的意思大概就是说他们原先的模型在人的脖子上会产生一些亮点，为了克服这个亮点的缺点，作者推荐我们使用[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)里的ATR训练集来进行训练。可是我刚刚查阅的资料显示ATR数据集里根本没有Neck的标签。抱着怀疑的态度，我从[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)上下载了基于ATR数据集和LIP数据集的模型，并进行了推理，结果如下：
 
-<figure class="half">     <img src="http://xxx.jpg">     <img src="http://yyy.jpg">    </figure>
-
-
+<p align="middle">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="300">
+</p>
 
 
 
@@ -150,7 +153,11 @@ cv2.imwrite(content_path, image)
 
 这里由于我的目标部署平台只有CPU，没有CUDA，而[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)中只提供了利用GPU推理的方式，因此我选择了另一个集成了许多AI模型的库, [AILIA](https://github.com/axinc-ai/ailia-models)。关于如何安装这个库，详见[Tutorial](https://github.com/axinc-ai/ailia-models/blob/master/TUTORIAL.md)。这个库恰好具备了我们所需要的ATR模型和LIP模型。而且为我们提供了转换好的ONNX模型，可以在CPU上进行推理。得到的图片如下：
 
-<figure class="half">     <img src="http://xxx.jpg">     <img src="http://yyy.jpg"> </figure>
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="300">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="300">
+</p>
 
 
 
@@ -213,9 +220,12 @@ color0 = img0.getcolors()						# 获取图片中的像素及个数
 
 
 
-下面我们进行颜色转化，先看看我们通过ATR模型得到的图片和作者提供的sample进行对比:
+下面我们进行颜色转化，先看看我们通过ATR模型得到的图片和作者提供的sample进行对比（左边为Sample）:
 
-<figure class="half">     <img src="http://xxx.jpg">     <img src="http://yyy.jpg">    </figure>
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.jpg" width="300">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
+</p>
 
 
 
@@ -274,6 +284,10 @@ img0.save('./output/0.png')
 
 现在我们得到了转化颜色后的图片，如下：
 
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_color.png" width="300">
+</p>
+
 
 
 
@@ -310,6 +324,10 @@ img0.save('./output/0.png')
 
 得到图片的效果如下:
 
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_neck.png" width="300">
+</p>
+
 
 
 
@@ -328,6 +346,10 @@ img0.save('./output/1.png')
 ```
 
 获取的图片如下:
+
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_white.png" width="300">
+</p>
 
 
 
@@ -351,6 +373,12 @@ image=np.array(image,dtype=np.uint8)
 cv2.imwrite(content_path, image)
 ```
 
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_no_background.jpg" width="300">
+</p>
+
+
+
 至此, 我们已经实现了获得没有背景的人物图, 已经加上了脖子标签并修正了颜色的人物分割图.
 
 
@@ -361,7 +389,21 @@ cv2.imwrite(content_path, image)
 
 对于生成VITON-HD需要的姿态图，我这里选择了简单地用[Windows Portable Version](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/0_index.md#windows-portable-demo)来实现。
 
-从这里下载源码[Windows Portable Version](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/0_index.md#windows-portable-demo), 然后运行‘models/getBaseModels.bat’和‘models/getCOCO_and_MPII_optional.bat’，会自动的下载相关模型。下载完成后，将我们需要的图片放在./examples/media/0.jpg
+从这里下载源码[Windows Portable Version](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/0_index.md#windows-portable-demo), 然后运行‘models/getBaseModels.bat’和‘models/getCOCO_and_MPII_optional.bat’，会自动的下载相关模型。下载完成后，将我们需要的图片放在./examples/media/0.jpg:
+
+在主目录执行以下指令：
+
+```
+bin\OpenPoseDemo.exe --image_dir examples\media --hand --write_images output\ --write_json output/ --disable_blending
+```
+
+这样会将骨架图保存在output里，同时也会将关键点坐标等信息保存在json文件里：
+
+<p align="middle">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/openpose.png" width="300">
+</p>
+
+
 
 
 
