@@ -45,8 +45,8 @@
 衣服的原图和分割后的效果如下：
 
 <figure class="half">     
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_cloth.jpg">     
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg">    
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON- HD-/blob/main/img/original_cloth.jpg" width="300">     
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg" width="300">    
 </figure>
 
 
