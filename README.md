@@ -45,9 +45,10 @@
 衣服的原图和分割后的效果如下：
 
 <p align="middle">     
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_cloth.jpg" width="300">     
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg" width="300">    
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_cloth.jpg" width="200">     
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg" width="200">    
 </p>
+
 
 
 
@@ -74,8 +75,9 @@ img.save(args.cloth_path + "/0.jpg")  		  # 保存图片
 得到的效果如下：
 
 <p align="middle">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg" width="300">     
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg" width="200">     
 </p>
+
 
 
 
@@ -103,8 +105,9 @@ cv2.imwrite(content_path, image)
 得到的效果如下：
 
 <p align="middle">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_no_background.jpg" width="300">     
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_no_background.jpg" width="200">     
 </p>
+
 
 
 
@@ -135,9 +138,10 @@ cv2.imwrite(content_path, image)
 这句话的意思大概就是说他们原先的模型在人的脖子上会产生一些亮点，为了克服这个亮点的缺点，作者推荐我们使用[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)里的ATR训练集来进行训练。可是我刚刚查阅的资料显示ATR数据集里根本没有Neck的标签。抱着怀疑的态度，我从[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)上下载了基于ATR数据集和LIP数据集的模型，并进行了推理，结果如下：
 
 <p align="middle">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="300">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="200">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="200">
 </p>
+
 
 
 
@@ -223,9 +227,10 @@ color0 = img0.getcolors()						# 获取图片中的像素及个数
 下面我们进行颜色转化，先看看我们通过ATR模型得到的图片和作者提供的sample进行对比（左边为Sample）:
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="300">
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="200">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="200">   
 </p>
+
 
 
 
@@ -285,8 +290,9 @@ img0.save('./output/0.png')
 现在我们得到了转化颜色后的图片，如下：
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_color.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_color.png" width="200">
 </p>
+
 
 
 
@@ -325,8 +331,9 @@ img0.save('./output/0.png')
 得到图片的效果如下:
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_neck.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_neck.png" width="200">
 </p>
+
 
 
 
@@ -348,8 +355,9 @@ img0.save('./output/1.png')
 获取的图片如下:
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_white.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_white.png" width="200">
 </p>
+
 
 
 
@@ -374,8 +382,9 @@ cv2.imwrite(content_path, image)
 ```
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_no_background.jpg" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/person_no_background.jpg" width="200">
 </p>
+
 
 
 
@@ -400,7 +409,7 @@ bin\OpenPoseDemo.exe --image_dir examples\media --hand --write_images output\ --
 这样会将骨架图保存在output里，同时也会将关键点坐标等信息保存在json文件里：
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/openpose.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/openpose.png" width="200">
 </p>
 
 # Usage
