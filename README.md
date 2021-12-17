@@ -118,12 +118,12 @@ cv2.imwrite(content_path, image)
 
 对于人体分割，在查看了作者的测试集后，我发现作者得到的Image-Parse图片都是将脖子用棕色给分割出来了。
 
-然而，作者在论文中提到了他用的ACGPN中的分割模型来进行的人体分割。当我去查阅的时候，我发现这个分割方面有三个主要数据集，LIP，ATR和Pascal。然而，这三个数据集中都没有包含脖子（Neck）的标签。然而如果分割出来没有脖子，那么最终的虚拟换衣效果就不会好。因为所有训练集的分割图都有脖子的标签，而我们分割出来的却没有。如下：（左为作者图，右为我们的图）
+然而，作者在论文中提到了他用的ACGPN中的分割模型来进行的人体分割。当我去查阅的时候，我发现这个分割方面有三个主要数据集，LIP，ATR和Pascal。然而，这三个数据集中都没有包含脖子（Neck）的标签。然而如果分割出来没有脖子，那么最终的虚拟换衣效果就不会好。因为所有训练集的分割图都有脖子的标签，而我们分割出来的却没有。如下：（左边为原图，中间为作者图，右为我们的图）
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="300">
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="300">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="200">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="200">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="200">
 </p>
 
 
@@ -154,9 +154,9 @@ cv2.imwrite(content_path, image)
 这里由于我的目标部署平台只有CPU，没有CUDA，而[Self-Correction-Human-Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing)中只提供了利用GPU推理的方式，因此我选择了另一个集成了许多AI模型的库, [AILIA](https://github.com/axinc-ai/ailia-models)。关于如何安装这个库，详见[Tutorial](https://github.com/axinc-ai/ailia-models/blob/master/TUTORIAL.md)。这个库恰好具备了我们所需要的ATR模型和LIP模型。而且为我们提供了转换好的ONNX模型，可以在CPU上进行推理。得到的图片如下：
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="300">
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
-    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_person.jpg" width="200">
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="200">   
+    <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/LIP.png" width="200">
 </p>
 
 
@@ -223,7 +223,7 @@ color0 = img0.getcolors()						# 获取图片中的像素及个数
 下面我们进行颜色转化，先看看我们通过ATR模型得到的图片和作者提供的sample进行对比（左边为Sample）:
 
 <p align="middle">   
-	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.jpg" width="300">
+	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/sample.png" width="300">
     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/ATR.png" width="300">   
 </p>
 
