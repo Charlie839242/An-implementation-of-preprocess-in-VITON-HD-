@@ -42,13 +42,9 @@
 
 
 
-衣服的原图如下：
+衣服的原图和分割后的效果如下：
 
-
-
-
-
-分割得到的效果如下：
+<figure class="half">     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/original_cloth.jpg">     <img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_seg.jpg">    </figure>
 
 
 
@@ -74,7 +70,7 @@ img.save(args.cloth_path + "/0.jpg")  		  # 保存图片
 
 得到的效果如下：
 
-
+![image](https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_color.jpg)  
 
 
 
@@ -97,7 +93,11 @@ image=np.array(image,dtype=np.uint8)
 cv2.imwrite(content_path, image)
 ```
 
-得到的效果如下
+得到的效果如下：
+
+![image](https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/cloth_no_background.jpg)  
+
+
 
 
 
