@@ -1,3 +1,4 @@
+```
 # 这个项目用来记录在复现VITON-HD的时候，是如何得到输入VITON-HD的模型的数据的。
 
 ## Check VITON-HD Here! [VITON-HD](https://github.com/shadow2496/VITON-HD)
@@ -411,6 +412,7 @@ bin\OpenPoseDemo.exe --image_dir examples\media --hand --write_images output\ --
 <p align="middle">   
 	<img src="https://github.com/Charlie839242/An-implementation-of-preprocess-in-VITON-HD-/blob/main/img/openpose.png" width="200">
 </p>
+```
 
 
 # Usage
